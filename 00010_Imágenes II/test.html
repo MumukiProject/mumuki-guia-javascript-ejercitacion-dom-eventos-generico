@@ -1,0 +1,35 @@
+/*<output#*//*#output>*/
+/*<tests#*/describe("", function() {
+  context("", () => {
+    describe("", () => {
+      beforeEach(() => {
+        _resetDocument_();
+      });
+      
+      it("Si pasamos por encima de una imagen de 100px se actualiza con 500px", () => {
+        let img1 = document.querySelectorAll('img')[0];
+        _dispatch_("mouseout", img1);
+        _resetDocument_();
+        img1.should.have.style('height', '500px');
+      });
+      
+      it("Si pasamos por encima de una imagen de 100px la que anteriormente tenía 500px ahora tiene 100px", () => {
+        let img2 = document.querySelectorAll('img')[1];
+        let img5 = document.querySelectorAll('img')[4];
+        _dispatch_("mouseout", img2);
+        img5.should.have.style('height', '100px');
+      });
+      
+      it("Si pasamos por encima de una imagen de 100px se actualiza con 500px pero si pasamos por encima de otra, vuelve a tener 100px", () => {
+        let img4 = document.querySelectorAll('img')[3];
+        let img3 = document.querySelectorAll('img')[2];
+        _dispatch_("mouseout", img4);
+        _dispatch_("mouseout", img3);
+        img4.should.have.style('height', '100px');
+      });
+      
+    });
+  });  
+});/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

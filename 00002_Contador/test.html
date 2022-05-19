@@ -1,0 +1,71 @@
+/*<output#*//*#output>*/
+/*<tests#*/describe("", function() {
+  context("", () => {
+    describe("", () => {
+      beforeEach(() => {
+        _resetDocument_();
+      });
+      
+      it("Inicialmente el span muestra el número 0", () => {
+      document.querySelector("span").should.have.trimmed.text("0");
+      })
+      
+      it("Si hacemos click sobre el botón +10 y luego sobre el botón -5 el span muestra 5", () => {
+        const botonMenosCinco = document.getElementsByTagName("button")[2];
+        const botonDiez = document.getElementsByTagName("button")[5];
+
+        _dispatch_("click", botonMenosCinco);
+        _dispatch_("click", botonDiez);
+
+        document.querySelector("span").should.have.trimmed.text("5");
+      });
+      
+      it("Si hacemos click sobre el botón +1 y luego sobre el botón +5 el span muestra 6", () => {
+        const botonMasUno = document.getElementsByTagName("button")[1];
+        const botonMasCinco = document.getElementsByTagName("button")[3];
+
+        _dispatch_("click", botonMasUno);
+        _dispatch_("click", botonMasCinco);
+
+        document.querySelector("span").should.have.trimmed.text("6");
+      });
+      
+      it("Si hacemos click sobre el botón -10 y luego sobre el botón -5 el span muestra -15", () => {
+        const botonMenosDiez = document.getElementsByTagName("button")[4];
+        const botonMemosCinco = document.getElementsByTagName("button")[2];
+
+        _dispatch_("click", botonMenosDiez);
+        _dispatch_("click", botonMemosCinco);
+
+        document.querySelector("span").should.have.trimmed.text("-15");
+      });
+      
+      it("Si hacemos click sobre el botón -1 y luego sobre el botón +1 el span muestra 0", () => {
+        const botonMenosUno = document.getElementsByTagName("button")[0];
+        const botonUno = document.getElementsByTagName("button")[1];
+
+        _dispatch_("click", botonMenosUno);
+        _dispatch_("click", botonUno);
+
+        document.querySelector("span").should.have.trimmed.text("0");
+      });
+      
+      it("Si hacemos click sobre el botón -10 luego sobre el botón +1 y por último 3 veces sobre el botón +5 el span muestra 6", () => {
+        const botonMenosDiez = document.getElementsByTagName("button")[4];
+        const botonUno = document.getElementsByTagName("button")[1];
+        const botonMasCinco = document.getElementsByTagName("button")[3];
+
+        _dispatch_("click", botonMenosDiez);
+        _dispatch_("click", botonUno);
+        _dispatch_("click", botonMasCinco);
+        _dispatch_("click", botonMasCinco);
+        _dispatch_("click", botonMasCinco);
+
+        document.querySelector("span").should.have.trimmed.text("6");
+      });
+    });
+  });  
+});
+/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

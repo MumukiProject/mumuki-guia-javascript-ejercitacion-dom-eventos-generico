@@ -1,0 +1,64 @@
+/*<output#*//*#output>*/
+/*<tests#*/describe("", function() {
+  context("", () => {
+    describe("", () => {
+      let primerDiv;
+      let segundoDiv;
+      beforeEach(() => {
+        _resetDocument_();
+        primerDiv = document.querySelectorAll('div')[0];
+        segundoDiv = document.querySelectorAll('div')[1];
+      });
+      
+      it("Hay un div con el título Imágenes", () => {
+        primerDiv.querySelector('h1').should.have.trimmed.text("Imágenes");
+      });
+      
+      it("Hay un div con el título Favoritas", () => {
+        segundoDiv.querySelector('h1').should.have.trimmed.text("Favoritas");
+      });
+      
+      it("El contenedor de las imágenes tiene diez imágenes", () => {
+        
+        primerDiv.querySelectorAll('img').length.should.eql(10);
+      });
+      
+      it("Inicialmente el contenedor de Favoritas no tiene ninguna imagen", () => {
+        segundoDiv.querySelectorAll('img').length.should.eql(0);
+      });
+      
+      it("Si clickeamos una imagen, se agrega al contenedor de Favoritas", () => {
+        let imagen = primerDiv.querySelectorAll('img')[2];
+        let srcImagen = imagen.getAttribute('src');
+        _dispatch_("click", imagen);
+        let imagenFavorita = segundoDiv.querySelector('img');
+        imagenFavorita.getAttribute('src').should.eql(srcImagen);
+        segundoDiv.querySelectorAll('img').length.should.eql(1);
+      });
+      
+      it("Si clickeamos una imagen, no se borra del contenedor de las imágenes", () => {
+        let imagen = primerDiv.querySelectorAll('img')[5];
+        _dispatch_("click", imagen);
+        primerDiv.querySelectorAll('img').length.should.eql(10);
+      });
+      
+      it("Si clickeamos una imagen del contenedor de favoritas, se elimina del mismo", () => {
+        let imagen = primerDiv.querySelectorAll('img')[2];
+        _dispatch_("click", imagen);
+        let imagenFav = segundoDiv.querySelector('img');
+        _dispatch_("click", imagenFav);
+        segundoDiv.querySelectorAll('img').length.should.eql(0);
+      });
+      
+      it("Si clickeamos una imagen que ya fue agregada al contenedor de Favoritas, no se vuelve a agregar", () => {
+        let imagen = primerDiv.querySelectorAll('img')[6];
+        _dispatch_("click", imagen);
+        _dispatch_("click", imagen);
+        segundoDiv.querySelectorAll('img').length.should.eql(1);
+      });
+      
+    });
+  });  
+});/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

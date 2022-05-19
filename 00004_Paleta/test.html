@@ -1,0 +1,47 @@
+/*<output#*//*#output>*/
+/*<tests#*/describe("", function() {
+  context("", () => {
+    describe("", () => {
+      let botonAda;
+      let botonNaranja;
+      let botonVerde;
+      let botonAmarillo;
+      beforeEach(() => {
+        _resetDocument_();
+        botonAda = document.getElementsByTagName('button')[0];
+        botonNaranja = document.getElementsByTagName('button')[1];
+        botonVerde = document.getElementsByTagName('button')[2];
+        botonAmarillo = document.getElementsByTagName('button')[3];
+      });
+      
+      
+      it("Si hacemos click sobre el botón #B71B59 el div cambia su color a #B71B59", () => {
+        _dispatch_("click", botonAda);
+
+        document.querySelector("div").should.have.style('background-color', 'rgb(183, 27, 89)');
+      });
+      
+      it("Si hacemos click sobre el botón #FF6600 el div cambia su color a #FF6600", () => {
+        _dispatch_("click", botonNaranja);
+
+        document.querySelector("div").should.have.style('background-color', 'rgb(255, 102, 0)');
+      });
+      
+      it("Si hacemos click sobre el botón #57BA57 el div cambia su color a #57BA57", () => {
+        _dispatch_("click", botonVerde);
+
+        document.querySelector("div").should.have.style('background-color', 'rgb(87, 186, 87)');
+      });
+      
+      it("Si hacemos click sobre el botón #E8D233 el div cambia su color a #E8D233", () => {
+        _dispatch_("click", botonAmarillo);
+
+        document.querySelector("div").should.have.style('background-color', 'rgb(232, 210, 51)');
+      });
+      
+    });
+  });  
+});
+/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

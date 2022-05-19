@@ -1,0 +1,1 @@
+El color gris al que nos referimos es `#808080`. :wink:

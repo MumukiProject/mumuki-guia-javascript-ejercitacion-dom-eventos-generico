@@ -1,0 +1,88 @@
+/*<output#*//*#output>*/
+/*<tests#*/describe("", function() {
+  context("", () => {
+    describe("", () => {
+      beforeEach(() => {
+        _resetDocument_();
+      });
+      
+      it("Hay diez botones con números del 0 al 9", () => {
+        document.querySelectorAll('button')[0].should.have.trimmed.text("0");
+        document.querySelectorAll('button')[1].should.have.trimmed.text("1");
+        document.querySelectorAll('button')[2].should.have.trimmed.text("2");
+        document.querySelectorAll('button')[3].should.have.trimmed.text("3");
+        document.querySelectorAll('button')[4].should.have.trimmed.text("4");
+        document.querySelectorAll('button')[5].should.have.trimmed.text("5");
+        document.querySelectorAll('button')[6].should.have.trimmed.text("6");
+        document.querySelectorAll('button')[7].should.have.trimmed.text("7");
+        document.querySelectorAll('button')[8].should.have.trimmed.text("8");
+        document.querySelectorAll('button')[9].should.have.trimmed.text("9");
+      });
+      
+      it("Hay un botón para reiniciar", () => {
+        document.querySelectorAll('button')[10].should.have.trimmed.text("Reiniciar");
+      });
+      
+      it("Hay un botón para borrar", () => {
+        document.querySelectorAll('button')[11].should.have.trimmed.text("Borrar");
+      });
+      
+      it("Hay un span", () => {
+        document.querySelector('span').should.exist;
+      });
+      
+      it("Si presionamos el 4 y luego el 8 el span muestra 48", () => {
+        let cuatro = document.querySelectorAll('button')[4];
+        let ocho = document.querySelectorAll('button')[8];
+        _dispatch_("click", cuatro);
+        _dispatch_("click", ocho);
+        
+        document.getElementsByTagName('span')[0].should.have.trimmed.text('48');
+      });
+      
+      it("Si presionamos el 4 y luego el 8 el span muestra 48", () => {
+        let cuatro = document.querySelectorAll('button')[4];
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        
+        document.getElementsByTagName('span')[0].should.have.trimmed.text('444444');
+      });
+      
+      it("Si presionamos el botón de reiniciar los números del span se borran", () => {
+        let cuatro = document.querySelectorAll('button')[4];
+        let reiniciar = document.querySelectorAll('button')[10];
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", cuatro);
+        _dispatch_("click", reiniciar);
+        
+        document.getElementsByTagName('span')[0].should.have.trimmed.text('');
+      });
+      
+      it("Si tenemos los números 5599 y presionamos el botón de borrar el span muestra 559", () => {
+        let cinco = document.querySelectorAll('button')[5];
+        let nueve = document.querySelectorAll('button')[9];
+        let borrar = document.querySelectorAll('button')[11];
+        _dispatch_("click", cinco);
+        _dispatch_("click", cinco);
+        _dispatch_("click", nueve);
+        _dispatch_("click", nueve);
+        _dispatch_("click", borrar);
+        
+        document.getElementsByTagName('span')[0].should.have.trimmed.text('559');
+      });
+      
+    });
+  });  
+});/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

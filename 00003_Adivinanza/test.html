@@ -1,0 +1,74 @@
+/*<output#*//*#output>*/
+/*<tests#*/describe("", function() {
+  context("", () => {
+    describe("", () => {
+      let botonCorrecto;
+      let botonIncorrectoUno;
+      let botonIncorrectoDos;
+      beforeEach(() => {
+        _resetUserInteractions_();
+        _resetDocument_();
+        botonCorrecto = document.querySelector("button[value='correcto']");
+        botonIncorrectoUno = document.querySelectorAll("button[value='incorrecto']")[0];
+        botonIncorrectoDos = document.querySelectorAll("button[value='incorrecto']")[1];
+
+      });
+      
+          it("Hay dos span", () => {
+            document.getElementsByTagName("span").length.should.eql(2);
+          })
+          
+          it("Hay tres botones", () => {
+            document.getElementsByTagName("button").length.should.eql(3);
+          })
+          
+          it("Hay tres botones", () => {
+            document.getElementsByTagName("button").length.should.eql(3);
+          })
+          
+          it("Hay un botón que tiene el atributo value = 'correcto' ", () => {
+            document.querySelector("button[value='correcto']").should.exist;
+          })
+          
+          it("Hay dos botones que tienen el atributo value = 'incorrecto' ", () => {
+            document.querySelectorAll("button[value='incorrecto']").length.should.eql(2);
+          })
+          
+          it("Al clickear el botón correcto el segundo span muestra ¡Respuesta correcta!", () => {
+            
+            _dispatch_("click", botonCorrecto);
+            
+            document.querySelectorAll("span")[1].should.have.trimmed.text("¡Respuesta correcta!");
+          })
+          
+          it("Al clickear el botón correcto cambia de color a verde", () => {
+            
+            _dispatch_("click", botonCorrecto);
+            
+            document.querySelector("button[value = 'correcto']").should.have.style('backgroundColor', 'green');
+          })
+          
+          it("Al clickear un botón incorrecto se muestra en el segundo span ¡Respuesta equivocada!", () => {
+            
+            _dispatch_("click", botonIncorrectoUno);
+            
+            document.querySelectorAll("span")[1].should.have.trimmed.text("¡Respuesta equivocada!");
+          })
+          
+         /* it("Al clickear un botón incorrecto todos los botones cambian de color.", () => {
+            
+            _dispatch_("click", botonIncorrectoUno);
+            
+            document.querySelector("button[value= 'correcto']").should.have.style('backgroundColor', 'green');
+            
+            document.querySelectorAll("button[value= 'incorrecto']")[0].should.have.style('backgroundColor', 'red');
+            
+            document.querySelector("button[value= 'incorrecto']")[1].should.have.style('backgroundColor', 'red');
+          })*/
+
+    });
+  });  
+});
+/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

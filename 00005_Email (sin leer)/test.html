@@ -1,0 +1,108 @@
+/*<output#*//*#output>*/
+/*<tests#*/describe("", function() {
+  context("", () => {
+    describe("", () => {
+      let li1;
+      let li2;
+      let li3;
+      let li4;
+      let li5;
+      let li6;
+      let li7;
+      let li8;
+      let li9;
+      
+      beforeEach(() => {
+        _resetUserInteractions_();
+        _resetDocument_();
+        li1 = document.querySelectorAll('li')[0];
+        li2 = document.querySelectorAll('li')[1];
+        li3 = document.querySelectorAll('li')[2];
+        li4 = document.querySelectorAll('li')[3];
+        li5 = document.querySelectorAll('li')[4];
+        li6 = document.querySelectorAll('li')[5];
+        li7 = document.querySelectorAll('li')[6];
+        li8 = document.querySelectorAll('li')[7];
+        li9 = document.querySelectorAll('li')[8];
+        li10 = document.querySelectorAll('li')[9];
+      });
+      
+      it("Hay un título h1 que dice Mis emails", () => {
+      document.querySelector("h1").should.have.trimmed.text("Mis emails");
+      })
+      
+      it("Hay un título h2 que dice Bandeja de entrada", () => {
+      document.querySelector("h2").should.have.trimmed.text("Bandeja de entrada");
+      })
+      
+      it("Hay diez li", () => {
+        document.getElementsByTagName("li").length.should.eql(10);
+      })
+      
+      it("Inicialmente los li están en negrita", () => {
+        
+      li1.should.have.style('fontWeight', 'bold');
+      li2.should.have.style('fontWeight', 'bold');
+      li3.should.have.style('fontWeight', 'bold');
+      li4.should.have.style('fontWeight', 'bold');
+      li5.should.have.style('fontWeight', 'bold');
+      li6.should.have.style('fontWeight', 'bold');
+      li7.should.have.style('fontWeight', 'bold');
+      li8.should.have.style('fontWeight', 'bold');
+      li9.should.have.style('fontWeight', 'bold');
+      li10.should.have.style('fontWeight', 'bold');
+      })
+      
+      it("Inicialmente los li tienen color negro", () => {
+        
+      li1.should.have.style('color', 'black');
+      li2.should.have.style('color', 'black');
+      li3.should.have.style('color', 'black');
+      li4.should.have.style('color', 'black');
+      li5.should.have.style('color', 'black');
+      li6.should.have.style('color', 'black');
+      li7.should.have.style('color', 'black');
+      li8.should.have.style('color', 'black');
+      li9.should.have.style('color', 'black');
+      li10.should.have.style('color', 'black');
+      })
+      
+    //Si clickeamos tres li dejan de estar en negrita
+
+      it("Si clickeamos el segundo li se pone de color gris", () => {
+        _dispatch_("click",  li2);
+
+        li2.should.have.style('color', 'rgb(128, 128, 128)');
+      });
+      
+      it("Si clickeamos el tercer li deja de estar en negrita", () => {
+        
+        _dispatch_("click",  li3);
+
+        li3.should.have.style('fontWeight', 'normal');
+      });
+      
+      it("Si clickeamos dos li se ponen de color gris", () => {
+        _dispatch_("click",  li8);
+        _dispatch_("click",  li9);
+
+        li8.should.have.style('color', 'rgb(128, 128, 128)');
+        li9.should.have.style('color', 'rgb(128, 128, 128)');
+      });
+        
+      it("Si clickeamos tres li dejan de estar en negrita", () => {
+        
+        _dispatch_("click",  li4);
+        _dispatch_("click",  li5);
+        _dispatch_("click",  li10);
+        
+        li4.should.have.style('fontWeight', 'normal');
+        li5.should.have.style('fontWeight', 'normal');
+        li10.should.have.style('fontWeight', 'normal');
+      });
+    });
+  });  
+});
+/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

@@ -1,0 +1,1 @@
+Muchas veces queremos modificar el _Document Model Object_. En esta lección vamos a aprender sobre los eventos, para entender como lograr esas interacciones entre el documento HTML y JavaScript. :exploding_head:

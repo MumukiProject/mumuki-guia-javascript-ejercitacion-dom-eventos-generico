@@ -1,0 +1,42 @@
+/*<output#*//*#output>*/
+/*<tests#*/describe("", function() {
+  context("", () => {
+    describe("", () => {
+      let scroll;
+      beforeEach(() => {
+        _resetDocument_();
+        _resetUserInteractions_();
+
+      });
+      
+      it ("Cuando el scroll está en los 1001px el color del body es green",() => {
+        window.scrollY = 1001
+        _dispatch_("scroll", window);
+        document.querySelector('body').should.have.style("background-color", "green")
+      });
+      
+      it ("Cuando el scroll está en los 500px el color del body es red",() => {
+        window.scrollY = 500;
+        _dispatch_("scroll", window);
+        document.querySelector('body').should.have.style("background-color", "red")
+      });
+      
+      
+      
+      it ("Cuando el scroll está en los 3000px el color del body es blue",() => {
+        window.scrollY = 3000;
+        _dispatch_("scroll", window);
+        document.querySelector('body').should.have.style("background-color", "blue")
+      });
+      
+      it ("Cuando el scroll está en los 3001 el color del body es orange",() => {
+        window.scrollY = 3001;
+        _dispatch_("scroll", window);
+        document.querySelector('body').should.have.style("background-color", "orange")
+      });
+    
+    });
+  });  
+});/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

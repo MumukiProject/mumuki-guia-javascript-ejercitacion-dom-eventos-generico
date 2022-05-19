@@ -1,0 +1,1 @@
+Tené en cuenta que el evento `hover` nos es útil para CSS, pero para JavaScript el evento que registra el movimiento del mouse sobre un elemento se llama `mouseout`. :relieved:

@@ -1,0 +1,124 @@
+/*<output#*//*#output>*/
+/*<tests#*/describe("", function() {
+  context("", () => {
+    describe("", () => {
+      let botonResta 
+      let botonSuma
+      
+      beforeEach(() => {
+        _resetDocument_();
+        botonResta = document.querySelectorAll('button')[0];
+        botonSuma = document.querySelectorAll('button')[1];
+      });
+
+      it("Hay un div con el id contenedor", () => {
+       document.getElementById("contenedor").should.have.exist;
+      });
+        
+      it("Hay un div con el id barra", () => {
+       document.getElementById("barra").should.have.exist;
+      });
+        
+      it("Hay un span", () => {
+       document.querySelector("span").should.exist;
+      });
+        
+      it("El span inicialmente muestra 0%", () => {
+       document.querySelector("span").should.have.trimmed.text("0%");
+      });
+        
+      it("Hay dos botones", () => {
+       document.getElementsByTagName("button").length.should.eql(2);
+      });
+        
+      it("Si clickeamos dos veces el botón + el width de la barra aumenta 20%", () => {
+          _dispatch_("click",  botonSuma);
+          _dispatch_("click",  botonSuma);
+          
+          document.getElementById('barra').should.have.style('width','20%');
+      });
+        
+      it("Si clickeamos cuatro veces el botón + el span muestra 40%", () => {
+        
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        document.querySelector("span").should.have.trimmed.text("40%");
+
+      });
+      
+      it("Si clickeamos tres veces el botón + y luego clickeamos el botón - el width queda en 20%", () => {
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonResta);
+        
+      
+        document.getElementById('barra').should.have.style('width','20%');
+
+      });
+      
+      it("Si clickeamos cinco veces el botón + y luego clickeamos dos veces el botón - el span muestra 30%", () => {
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonResta);
+        _dispatch_("click",  botonResta);
+        
+        
+        document.querySelector("span").should.have.trimmed.text("30%");
+
+      });
+      
+      it("Si la barra esta en 0% y clickeamos el botón - el span se mantiene en 0%", () => {
+        _dispatch_("click",  botonResta);
+        
+        document.querySelector("span").should.have.trimmed.text("0%");
+      });
+      
+      it("Si la barra esta en 100% y clickeamos el botón + el width se mantiene en 100%", () => {
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        
+        
+        document.getElementById('barra').should.have.style('width','100%');
+      });
+      
+      it("Si presionamos una vez la flecha derecha el width de la barra aumenta 10%", () => {
+        var event = document.createEvent('Events');
+        event.initEvent('keydown', true, true);
+        event.keyCode = 39;
+        document.dispatchEvent(event);
+          
+        document.getElementById('barra').should.have.style('width','10%');
+      });
+      
+      it("Si presionamos una vez la flecha izquierda el width de la barra disminuye 10%", () => {
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        _dispatch_("click",  botonSuma);
+        var event = document.createEvent('Events');
+        event.initEvent('keydown', true, true);
+        event.keyCode = 37;
+        document.dispatchEvent(event);
+          
+        document.getElementById('barra').should.have.style('width','20%');
+      });
+    });
+  });  
+});
+/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

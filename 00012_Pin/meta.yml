@@ -1,0 +1,12 @@
+---
+locale: es
+tags: []
+layout: input_right
+editor: multiple_files
+type: problem
+extra_visible: false
+language: html
+teacher_info: ''
+manual_evaluation: false
+choices: []
+name: Pin

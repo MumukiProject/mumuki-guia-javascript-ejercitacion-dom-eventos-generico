@@ -1,0 +1,113 @@
+/*<output#*//*#output>*/
+/*<tests#*/describe("", function() {
+  context("", () => {
+    describe("", () => {
+      let img1;
+      let img2;
+      let img3;
+      let img4;
+      let img5;
+      let img6;
+      let img7;
+      let img8;
+      let img9;
+      let img10;
+      let img11;
+      let img12;
+      beforeEach(() => {
+        _resetDocument_();
+        img1 = document.querySelectorAll('img')[0];
+        img2 = document.querySelectorAll('img')[1];
+        img3 = document.querySelectorAll('img')[2];
+        img4 = document.querySelectorAll('img')[3];
+        img5 = document.querySelectorAll('img')[4];
+        img6 = document.querySelectorAll('img')[5];
+        img7 = document.querySelectorAll('img')[6];
+        img8 = document.querySelectorAll('img')[7];
+        img9 = document.querySelectorAll('img')[8];
+        img10 = document.querySelectorAll('img')[9];
+        img11 = document.querySelectorAll('img')[10];
+        img12 = document.querySelectorAll('img')[11];
+      });
+      
+      it("Hay doce imágenes", () => {
+        document.getElementsByTagName('img').length.should.eql(12);
+      });
+      
+      it("Hay cuatro botones", () => {
+        document.getElementsByTagName('button').length.should.eql(4);
+      });
+      
+      it("Hay un botón con el id accion", () => {
+        document.querySelector("button[id='accion']").should.exist;
+      });
+      
+      it("Hay un botón con el id aventura", () => {
+        document.querySelector("button[id='aventura']").should.exist;
+      });
+      
+      it("Hay un botón con el id ficcion", () => {
+        document.querySelector("button[id='ficcion']").should.exist;
+      });
+      
+      it("Hay cuatro imágenes por género", () => {
+        document.getElementsByClassName('accion').length.should.eql(4);
+        document.getElementsByClassName('ficcion').length.should.eql(4);
+        document.getElementsByClassName('aventura').length.should.eql(4);
+      });
+      
+      it("Si clickeamos el botón de Todas, se muestran todas las imágenes", () => {
+        let todas = document.getElementById('todas');
+        _dispatch_("click",  todas);
+        img1.should.be.visible;
+        img2.should.be.visible;
+        img3.should.be.visible;
+        img4.should.be.visible;
+        img5.should.be.visible;
+        img6.should.be.visible;
+        img7.should.be.visible;
+        img8.should.be.visible;
+        img9.should.be.visible;
+        img10.should.be.visible;
+        img11.should.be.visible;
+        img12.should.be.visible;
+      });
+      
+      it("Si clickeamos el botón de Ficción, se muestran solo las imágenes de ficción", () => {
+        let ficcion = document.getElementById('ficcion');
+        _dispatch_("click",  ficcion);
+        document.querySelectorAll("img[class='ficcion']")[0].should.be.visible;
+        document.querySelectorAll("img[class='ficcion']")[1].should.be.visible;
+        document.querySelectorAll("img[class='ficcion']")[2].should.be.visible;
+        document.querySelectorAll("img[class='ficcion']")[3].should.be.visible;
+        document.querySelectorAll("img[class='accion']")[0].should.not.be.visible;
+        document.querySelectorAll("img[class='aventura']")[3].should.not.be.visible;
+      });
+      
+      it("Si clickeamos el botón de Acción, se muestran solo las imágenes de acción", () => {
+        let accion = document.getElementById('accion');
+        _dispatch_("click",  accion);
+        document.querySelectorAll("img[class='accion']")[0].should.be.visible;
+        document.querySelectorAll("img[class='accion']")[1].should.be.visible;
+        document.querySelectorAll("img[class='accion']")[2].should.be.visible;
+        document.querySelectorAll("img[class='accion']")[3].should.be.visible;
+        document.querySelectorAll("img[class='ficcion']")[2].should.not.be.visible;
+        document.querySelectorAll("img[class='aventura']")[1].should.not.be.visible;
+      });
+      
+      it("Si clickeamos el botón de Aventura, se muestran solo las imágenes de aventura", () => {
+        let aventura = document.getElementById('aventura');
+        _dispatch_("click",  aventura);
+        document.querySelectorAll("img[class='aventura']")[0].should.be.visible;
+        document.querySelectorAll("img[class='aventura']")[1].should.be.visible;
+        document.querySelectorAll("img[class='aventura']")[2].should.be.visible;
+        document.querySelectorAll("img[class='aventura']")[3].should.be.visible;
+        document.querySelectorAll("img[class='ficcion']")[3].should.not.be.visible;
+        document.querySelectorAll("img[class='accion']")[0].should.not.be.visible;
+      });
+      
+    });
+  });  
+});/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

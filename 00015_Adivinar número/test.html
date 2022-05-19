@@ -1,0 +1,63 @@
+/*<output#*//*#output>*/
+/*<tests#*///Agregar pista para que usen keypress
+describe("", function() {
+  context("", () => {
+    describe("", () => {
+      let botonReiniciar = document.querySelector('button');
+      beforeEach(() => {
+        _resetDocument_();
+        botonReiniciar = document.querySelector('button');
+      });
+      
+      it("Hay un span", () => {
+        document.querySelector('span').should.exist;
+      });
+      
+      it("Hay un botón que dice Reiniciar", () => {
+        botonReiniciar.should.have.trimmed.text("Reiniciar");
+      });
+      
+      it("Si el número ingresado es el 0 el span nos puede decir que adivinamos o que el número es más grande", () => {
+      	let event = document.createEvent('Events');
+      	event.initEvent('keypress', true, true);
+      	event.keyCode = 48;
+      	document.dispatchEvent(event);
+      	let textoDelSpan = document.querySelector('span').textContent; 
+      	let textosPosibles = ["Adivinaste. Número ingresado: 0", "El número es más grande. Número ingresado: 0"];
+      	textosPosibles.includes(textoDelSpan).should.eql(true);
+      });
+      
+      it("Si el número ingresado es el 9 el span nos puede decir que adivinamos o que el número es más chico", () => {
+      	let event = document.createEvent('Events');
+      	event.initEvent('keypress', true, true);
+      	event.keyCode = 57;
+      	document.dispatchEvent(event);
+      	let textoDelSpan = document.querySelector('span').textContent; 
+      	let textosPosibles = ["Adivinaste. Número ingresado: 9", "El número es más chico. Número ingresado: 9"];
+      	textosPosibles.includes(textoDelSpan).should.eql(true);
+      });
+      
+      it("Si el número ingresado es el 5 el span nos puede decir que adivinamos, que el número es más chico o que es más grande", () => {
+      	let event = document.createEvent('Events');
+      	event.initEvent('keypress', true, true);
+      	event.keyCode = 53;
+      	document.dispatchEvent(event);
+      	let textoDelSpan = document.querySelector('span').textContent; 
+      	let textosPosibles = ["Adivinaste. Número ingresado: 5", "El número es más chico. Número ingresado: 5", "El número es más grande. Número ingresado: 5"];
+      	textosPosibles.includes(textoDelSpan).should.eql(true);
+      });
+      
+      it("Al hacer click en el botón reiniciar el span vuelve a decir '¡Nueva partida! Presione un número.'", () => {
+      	let event = document.createEvent('Events');
+      	event.initEvent('keypress', true, true);
+      	event.keyCode = 53;
+      	document.dispatchEvent(event);
+      	_dispatch_("click",  botonReiniciar);
+      	
+      	document.querySelector('span').should.have.trimmed.text('¡Nueva partida! Presione un número.');
+      });
+    });
+  });  
+});/*#tests>*/
+/*<options#*/output_ignore_scripts: true
+output_ignore_styles: true/*#options>*/

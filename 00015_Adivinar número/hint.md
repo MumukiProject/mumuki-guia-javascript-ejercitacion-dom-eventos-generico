@@ -1,0 +1,1 @@
+El evento que se lanza al presionar una tecla es `keypress`. :keyboard:

@@ -1,0 +1,1 @@
+En este ejercicio manejaremos el `width` de la barra con porcentajes y no con pixeles. :wink: 
