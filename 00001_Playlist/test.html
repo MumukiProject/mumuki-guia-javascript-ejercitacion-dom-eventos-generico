@@ -39,10 +39,10 @@ it("Si ingresamos 'frío cemento' como quinta canción, la lista tiene 'frío ce
   _stubPromptResponse_('cancion2');
   _stubPromptResponse_('cancion3');
   _stubPromptResponse_('cancion4');
-  _stubPromptResponse_('frío cemento');
+  _stubPromptResponse_('shine on you crazy diamond');
   _resetDocument_();
   
-  document.querySelectorAll('li')[4].should.have.trimmed.text("frío cemento");
+  document.querySelectorAll('li')[4].should.have.trimmed.text("shine on you crazy diamond");
 });
 
 it("Solo debe haber 5 canciones en la lista", function() {
