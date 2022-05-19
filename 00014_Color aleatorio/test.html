@@ -28,21 +28,6 @@
         let colorDelBody2 = body.style.backgroundColor;
         colorDelBody1.should.not.eql(colorDelBody2);
       });
-      
-      /*it("Los componentes del rgb se deben generar por separado", () => {
-        var event = document.createEvent('Events');
-        event.initEvent('keydown', true, true);
-        event.keyCode = 32;
-        document.dispatchEvent(event);
-        
-        let colorDelBody = body.style.backgroundColor;
-        
-        let componentesRGB = colorDelBody.replace("rgb(", "").replace(")", "").split(",").map((numero) => { parseInt(numero) });
-
-        let sonTodosIguales = componentesRGB[0] == componentesRGB[1] && componentesRGB[0] == componentesRGB[2] && componentesRGB[1] == componentesRGB[2];
-
-        sonTodosIguales.should.eql(false);
-      });*/
     });
   });  
 });
