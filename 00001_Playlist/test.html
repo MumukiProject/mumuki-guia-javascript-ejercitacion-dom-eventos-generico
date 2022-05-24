@@ -23,10 +23,10 @@ it("Si ingresamos 5 canciones, la lista tiene 5 canciones", function() {
   document.querySelectorAll('ul li').length.should.eql(5);
 });
 
-it("Si ingresamos 'creo' como tercer canción, la lista tiene 'creo' como tercer elemento", function() {
+it("Si ingresamos 'Hasta la raíz' como tercer canción, la lista tiene 'Hasta la raíz' como tercer elemento", function() {
   _stubPromptResponse_('cancion1');
   _stubPromptResponse_('cancion2');
-  _stubPromptResponse_('creo');
+  _stubPromptResponse_('Hasta la raíz');
   _stubPromptResponse_('cancion4');
   _stubPromptResponse_('cancion5');
   _resetDocument_();
@@ -34,7 +34,7 @@ it("Si ingresamos 'creo' como tercer canción, la lista tiene 'creo' como tercer
   document.querySelectorAll('li')[2].should.have.trimmed.text("creo");
 });
 
-it("Si ingresamos 'frío cemento' como quinta canción, la lista tiene 'frío cemento' como quinta elemento", function() {
+it("Si ingresamos 'shine on you crazy diamond' como quinta canción, la lista tiene 'shine on you crazy diamond' como quinto elemento", function() {
   _stubPromptResponse_('cancion1');
   _stubPromptResponse_('cancion2');
   _stubPromptResponse_('cancion3');
