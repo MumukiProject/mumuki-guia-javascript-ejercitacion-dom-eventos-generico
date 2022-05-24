@@ -31,7 +31,7 @@ it("Si ingresamos 'Hasta la raíz' como tercer canción, la lista tiene 'Hasta l
   _stubPromptResponse_('cancion5');
   _resetDocument_();
   
-  document.querySelectorAll('li')[2].should.have.trimmed.text("creo");
+  document.querySelectorAll('li')[2].should.have.trimmed.text("Hasta la raíz");
 });
 
 it("Si ingresamos 'shine on you crazy diamond' como quinta canción, la lista tiene 'shine on you crazy diamond' como quinto elemento", function() {
