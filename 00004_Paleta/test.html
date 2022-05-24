@@ -5,13 +5,13 @@
       let botonAzul;
       let botonNaranja;
       let botonVerde;
-      let botonAmarillo;
+      let botonBrandComple;
       beforeEach(() => {
         _resetDocument_();
         botonAzul = document.getElementsByTagName('button')[0];
         botonNaranja = document.getElementsByTagName('button')[1];
         botonVerde = document.getElementsByTagName('button')[2];
-        botonAmarillo = document.getElementsByTagName('button')[3];
+        botonBrandComple = document.getElementsByTagName('button')[3];
       });
       
       
@@ -33,10 +33,10 @@
         document.querySelector("div").should.have.style('background-color', 'rgb(0, 201, 180)');
       });
       
-      it("Si hacemos click sobre el botón #E8D233 el div cambia su color a #E8D233", () => {
-        _dispatch_("click", botonAmarillo);
+      it("Si hacemos click sobre el botón #1A94A3 el div cambia su color a #1A94A3", () => {
+        _dispatch_("click", botonBrandComple);
 
-        document.querySelector("div").should.have.style('background-color', 'rgb(232, 210, 51)');
+        document.querySelector("div").should.have.style('background-color', 'rgb(26, 148, 163)');
       });
       
     });
